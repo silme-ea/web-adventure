@@ -1,0 +1,14 @@
+*.swp
+*.swo
+*.pyc
+*.*~
+*.egg-info
+pyenv
+#*#
+build
+dist/*
+venv
+*.sqlite
+*.sublime-*
+.coverage
+.DS_Store

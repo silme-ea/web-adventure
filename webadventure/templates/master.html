@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Film Temecula - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.responsive.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/master.css') }}" />
+    {% block head %}{% endblock %}
+  </head>
+  <body class="body">
+    {% block body %}{% endblock %}
+  </body>
+  {% block tail %}
+    <script src="{{ url_for('static', filename='js/jquery-1.9.0.min.js') }}"></script>
+  {% endblock %}
+</html>
