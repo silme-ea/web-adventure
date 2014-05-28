@@ -1,0 +1,20 @@
+# CSS and less
+bootstrap_less:
+    filters:
+        - less
+    contents:
+        - less/bootstrap/bootstrap.less
+    output: css/bootstrap.css
+
+master_less:
+    filters:
+        - less
+    contents:
+        - less/master.less
+    output: css/master.css
+
+# JS
+bootstrap_js:
+    contents:
+        - js/bootstrap/*.*
+    output: js/bootstrap.js

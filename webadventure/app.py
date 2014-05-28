@@ -1,5 +1,3 @@
-import os.path as op
-
 from flask import Flask
 
 # Application
@@ -11,16 +9,14 @@ def init(settings):
     app.config.from_object(settings)
 
     # Configure modules
-    from webadventure import database, admin
+    from webadventure import database, admin, assets
 
     database.init(app)
     admin.init(app)
+    assets.init(app)
 
     # Import packages
     from webadventure import packages
 
     # Initialize packages
     packages.user.init(app)
-    packages.site.init(app)
-    packages.survey.init(app)
-    packages.location.init(app)
