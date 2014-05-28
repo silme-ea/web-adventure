@@ -1,8 +1,8 @@
 from flask.ext.admin import Admin, AdminIndexView, BaseView as BaseAdminView, expose
 from flask.ext.admin.contrib.sqlamodel import ModelView
 
-from tvsite.database import db
-from tvsite.packages.user.api import get_current_user
+from webadventure.database import db
+from webadventure.packages.user.api import get_current_user
 
 
 class AuthMixin(object):

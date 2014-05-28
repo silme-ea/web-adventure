@@ -11,13 +11,13 @@ def init(settings):
     app.config.from_object(settings)
 
     # Configure modules
-    from filmtemecula import database, admin
+    from webadventure import database, admin
 
     database.init(app)
     admin.init(app)
 
     # Import packages
-    from filmtemecula import packages
+    from webadventure import packages
 
     # Initialize packages
     packages.user.init(app)

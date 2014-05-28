@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='filmtemecula',
+    name='Web Adventure',
     version='0.0.1',
-    url='https://bitbucket.org/joes/',
+    url='https://github.com/silme-ea/web-adventure',
     license='BSD',
-    author='Serge S. Koval, Yuri Shakalov',
-    description='Film Temecula site',
+    author='Yuri Shakalov, Anton Al-Houry-Hanna',
+    description='Web port of Collosal Cave adventure game',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,

@@ -27,6 +27,3 @@ ROOT_PATH = op.join(op.dirname(__file__), 'static')
 
 IMG_UPLOAD_URL = 'upload/img/'
 IMG_UPLOAD_PATH = op.join(ROOT_PATH, 'upload', 'img')
-
-WIKI_UPLOAD_URL = 'upload/wiki/'
-WIKI_UPLOAD_PATH = op.join(ROOT_PATH, 'upload', 'wiki')

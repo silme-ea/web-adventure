@@ -9,17 +9,17 @@ def devserver(
         cfg=('c', None, 'Override settings file')):
     app.debug = debug
 
-    init(cfg or 'filmtemecula.settings')
+    init(cfg or 'webadventure.settings')
 
     app.run(bind, port)
 
 
 @command()
 def dbcreate():
-    init('filmtemecula.settings')
+    init('webadventure.settings')
 
     with app.test_request_context():
-        from filmtemecula.database import create_all
+        from webadventure.database import create_all
         create_all()
 
 
@@ -27,7 +27,7 @@ def dbcreate():
 def shell(no_ipython=('', False, 'do not use IPython')):
     '''Start a new interactive Python session
     '''
-    init('filmtemecula.settings')
+    init('webadventure.settings')
 
     with app.test_request_context():
         banner = 'Interactive shell\n'
