@@ -13,8 +13,20 @@ master_less:
         - less/master.less
     output: css/master.css
 
+public_css:
+    output: css/public.css
+    contents:
+        - bootstrap_less
+        - master_less
+
 # JS
 bootstrap_js:
     contents:
         - js/bootstrap/*.*
     output: js/bootstrap.js
+
+public_js:
+    contents:
+        - js/jquery-2.1.1.min.js
+        - bootstrap_js
+    output: js/public.js

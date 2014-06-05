@@ -1,1 +1,1 @@
-from filmtemecula.packages import user, site, survey, location
+from webadventure.packages import core

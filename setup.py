@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Web Adventure',
-    version='0.0.1',
+    version='0.0.3',
     url='https://github.com/silme-ea/web-adventure',
     license='BSD',
     author='Yuri Shakalov, Anton Al-Houry-Hanna',

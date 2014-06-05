@@ -1,4 +1,15 @@
-from filmtemecula.app import app, init
+from webadventure.app import app, init
+from opster import command, dispatch
+
+def _expose_dev_static(app):
+    import os.path as op
+    from flask import send_from_directory
+
+    path = op.abspath(op.join(op.dirname(__file__), 'frontend'))
+
+    @app.route('/dev_static/<path:filename>')
+    def custom_static(filename):
+        return send_from_directory(path, filename)
 
 
 @command()
@@ -10,7 +21,7 @@ def devserver(
     app.debug = debug
 
     init(cfg or 'webadventure.settings')
-
+    _expose_dev_static(app)
     app.run(bind, port)
 
 

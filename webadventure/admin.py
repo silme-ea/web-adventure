@@ -1,13 +1,14 @@
+from flask.ext.login import current_user
 from flask.ext.admin import Admin, AdminIndexView, BaseView as BaseAdminView, expose
-from flask.ext.admin.contrib.sqlamodel import ModelView
+from flask.ext.admin.contrib.sqla import ModelView
 
 from webadventure.database import db
-from webadventure.packages.user.api import get_current_user
 
 
 class AuthMixin(object):
+
     def is_accessible(self):
-        user = get_current_user()
+        user = current_user
 
         if user.is_anonymous() or not user.admin:
             return False
@@ -24,6 +25,7 @@ class IndexView(AuthMixin, AdminIndexView):
 
 
 class BaseModelView(AuthMixin, ModelView):
+
     def __init__(self, model, **kwargs):
         super(BaseModelView, self).__init__(model, db.session, **kwargs)
 

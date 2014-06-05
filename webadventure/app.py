@@ -19,4 +19,4 @@ def init(settings):
     from webadventure import packages
 
     # Initialize packages
-    packages.user.init(app)
+    packages.core.init(app)

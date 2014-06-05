@@ -1,3 +1,7 @@
+# Performance settings
+ASSETS_DEBUG = False
+ASSETS_TRACK = True
+
 # Flask CSRF key
 SECRET_KEY = '123456790'
 

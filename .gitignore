@@ -12,3 +12,4 @@ venv
 *.sublime-*
 .coverage
 .DS_Store
+.webassets-cache
