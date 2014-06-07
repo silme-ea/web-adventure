@@ -1,0 +1,68 @@
+{% macro render_errors(f) %}
+  {% if f.errors %}
+    {% for e in f.errors if e is string %}
+      <p class="help-block">{{ e }}</p>
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_field(f, set_focus=False, kwargs={}, required=False) %}
+    <div class="form-group{% if f.errors %} has-error has-feedback{% elif f.data %} has-success has-feedback{% endif %}">
+      {% if required %}<span class="field-required">*</span>{% endif %}
+      <label for={{ f.id }} class="col-sm-2 control-label">
+      {{ f.label.text }}
+      </label>
+      <div class="col-sm-10">
+      {% if set_focus %}
+      {{ f(autofocus='autofocus', class_='form-control', **kwargs)|safe }}
+      {% else %}
+      {{ f(class_='form-control', **kwargs)|safe }}
+      {% endif %}
+      {% if f.errors %}
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      {% elif f.data %}
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      {% endif %}
+      {{ render_errors(f) }}
+      {% if f.description %}
+      <p class="help-block">{{ f.description }}</p>
+      {% endif %}
+      </div>
+    </div>
+{% endmacro %}
+
+{% macro render_form_fields(form, set_focus=True, kwargs={}) %}
+    {{ form.hidden_tag() if form.hidden_tag is defined }}
+
+    {% for f in form if f.type != 'HiddenField' and f.type != 'CSRFTokenField' %}
+      {% set field_args = kwargs.get(f.name, {}) %}
+      {{ render_field(f, not loop.index0 and set_focus, field_args) }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro form_tag(form, upload=False, form_id=None, form_method='POST') %}
+    <form action="" method={{ form_method }} class="form-horizontal" role="form" {% if form_id %}id="{{ form_id }}"{% endif %} enctype="multipart/form-data">
+      {{ caller() }}
+    </form>
+{% endmacro %}
+
+{% macro render_form_buttons(cancel_url, extra=None) %}
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+        {% if extra %}
+        {{ extra }}
+        {% endif %}
+        {% if cancel_url %}
+        <a href="{{ cancel_url }}" class="btn form-control">Cancel</a>
+        {% endif %}
+      </div>
+    </div>
+{% endmacro %}
+
+{% macro render_form(form, cancel_url, extra=None) -%}
+    {% call form_tag(form) %}
+        {{ render_form_fields(form) }}
+        {{ render_form_buttons(cancel_url, extra) }}
+    {% endcall %}
+{% endmacro %}

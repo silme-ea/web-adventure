@@ -1,0 +1,18 @@
+{% extends 'body.html' %}
+{% import 'lib.html' as form_lib with context %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-8">
+    <header>
+      <h2>Login</h2>
+    </header>
+    <section>
+      {% call form_lib.form_tag(form) %}
+        {{ form_lib.render_form_fields(form) }}
+        {{ form_lib.render_form_buttons() }}
+      {% endcall %}
+    </section>
+  </div>
+</div>
+{% endblock %}

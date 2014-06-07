@@ -6,7 +6,7 @@ ASSETS_TRACK = True
 SECRET_KEY = '123456790'
 
 # SQLAlchemy configuration
-SQLALCHEMY_DATABASE_URI = 'sqlite:///../data.sqlite'
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:1@localhost/webadventure'
 SQLALCHEMY_ECHO = True
 
 # Site settings

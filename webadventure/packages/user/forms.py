@@ -8,18 +8,17 @@ from .tools import verify_password
 
 class RegisterForm(wtf.Form):
     email = StringField('Email',
-                        validators=[validators.Required()],
-                        widget=widgets.Input(input_type='email'))
+                        validators=[validators.Required()])
     password = PasswordField('Password', validators=[validators.Required()])
     password2 = PasswordField('Confirm', validators=[validators.Required()])
 
     def validate_password(self, field):
         if self.password.data != self.password2.data:
-            raise wtf.ValidationError('Passwords dont match!')
+            raise validators.ValidationError('Passwords don\'t match!')
 
     def validate_email(self, field):
         if user_exists(self.email.data):
-            raise wtf.ValidationError('User already exists')
+            raise validators.ValidationError('User already exists')
 
     def get_user(self):
         user = create_user(self.email.data, self.password.data)
@@ -41,10 +40,19 @@ class LoginForm(wtf.Form):
         self.cached_user = get_user(self.email.data)
 
         if self.cached_user is None:
-            raise wtf.ValidationError('Invalid user or password')
+            raise validators.ValidationError('Invalid user or password')
 
         if not verify_password(self.cached_user, self.password.data):
-            raise wtf.ValidationError('Invalid user or password')
+            raise validators.ValidationError('Invalid user or password')
 
         if not self.cached_user.active:
-            raise wtf.ValidationError('Please activate your account')
+            raise validators.ValidationError('Please activate your account')
+
+    def validate_password(self, field):
+        self.cached_user = get_user(self.email.data)
+
+        if self.cached_user is None:
+            raise validators.ValidationError('Invalid user or password')
+
+        if not verify_password(self.cached_user, self.password.data):
+            raise validators.ValidationError('Invalid user or password')

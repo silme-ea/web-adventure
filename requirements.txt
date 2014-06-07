@@ -8,3 +8,4 @@ Flask-Assets==0.9
 Flask-WTF==0.9.5
 alembic==0.6.5
 pyyaml==3.11
+psycopg2==2.5.3

@@ -28,12 +28,10 @@ def register():
 
 @bp.route('/login/', methods=['GET', 'POST'])
 def login_view():
-    next = request.args.get('next')
-
     form = forms.LoginForm(request.form)
     if form.validate_on_submit():
         login_user(form.cached_user)
-        return redirect(next)
+        return redirect(url_for('core.index'))
 
     return render_template('user/login.html', form=form, next=next)
 

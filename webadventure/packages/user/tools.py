@@ -4,7 +4,7 @@ import random
 
 # Hashes and stuff
 def get_hexdigest(salt, raw_password):
-    return hashlib.sha1(salt + raw_password).hexdigest()
+    return hashlib.sha1((salt + raw_password).encode('utf-8')).hexdigest()
 
 
 def encrypt_password(raw_password):
