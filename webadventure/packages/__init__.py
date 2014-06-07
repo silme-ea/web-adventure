@@ -1,1 +1,1 @@
-from webadventure.packages import core
+from webadventure.packages import core, user

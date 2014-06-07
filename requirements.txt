@@ -5,6 +5,6 @@ Flask-Login==0.2.10
 SQLAlchemy==0.9.4
 Flask-SQLAlchemy==1.0
 Flask-Assets==0.9
-Flask-WTF==0.8.4
+Flask-WTF==0.9.5
 alembic==0.6.5
 pyyaml==3.11
