@@ -5,7 +5,7 @@ setup(
     version='0.0.3',
     url='https://github.com/silme-ea/web-adventure',
     license='BSD',
-    author='Yuri Shakalov, Anton Al-Houry-Hanna',
+    author='Yuri Shakalov, Anton El-Khoury-Hanna',
     description='Web port of Collosal Cave adventure game',
     packages=find_packages(),
     include_package_data=True,
