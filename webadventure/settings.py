@@ -1,3 +1,6 @@
+# Site settings
+INDEX_VIEW = 'core.index'
+
 # Performance settings
 ASSETS_DEBUG = False
 ASSETS_TRACK = True
@@ -8,9 +11,6 @@ SECRET_KEY = '123456790'
 # SQLAlchemy configuration
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:1@localhost/webadventure'
 SQLALCHEMY_ECHO = True
-
-# Site settings
-INDEX_VIEW = 'site.home'
 
 # Image uploads
 import os.path as op

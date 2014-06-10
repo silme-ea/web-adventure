@@ -30,7 +30,7 @@ class BaseModelView(AuthMixin, ModelView):
         super(BaseModelView, self).__init__(model, db.session, **kwargs)
 
 
-admin = Admin(name='Film', index_view=IndexView())
+admin = Admin(name='Adventure', index_view=IndexView())
 
 
 def init(app):

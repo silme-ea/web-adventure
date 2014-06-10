@@ -8,3 +8,9 @@ def init(app):
 
     # Register app blueprint
     app.register_blueprint(views.bp)
+
+    # Administrative
+    from .admin import UserAdmin
+    from webadventure.admin import admin
+
+    admin.add_view(UserAdmin())

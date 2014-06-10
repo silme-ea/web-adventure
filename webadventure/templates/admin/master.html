@@ -1,0 +1,4 @@
+{% extends original_admin_master %}
+{% block brand %}
+  <a href="{{ url_for(config.INDEX_VIEW) }}">{{ super() }}</a>
+{% endblock %}
