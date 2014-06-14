@@ -1,0 +1,14 @@
+{% extends 'body.html' %}
+
+{% block body %}
+<p>
+    {{ game_output}}
+</p>
+<form action="" method="post" name="prompt">
+    {{form.hidden_tag()}}
+    <p>
+        > {{ form.prompt(size=50) }}
+    </p>
+    <p><input type="submit" value="Go!"></p>
+</form>
+{% endblock %}
