@@ -3,6 +3,7 @@
 *.pyc
 *.*~
 *.egg-info
+.idea
 pyenv
 #*#
 build
@@ -13,3 +14,4 @@ venv
 .coverage
 .DS_Store
 .webassets-cache
+webadventure/settings.py
