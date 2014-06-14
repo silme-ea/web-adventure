@@ -21,3 +21,4 @@ def init(settings):
     # Initialize packages
     packages.core.init(app)
     packages.user.init(app)
+    packages.adventure.init(app)
