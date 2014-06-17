@@ -1,0 +1,23 @@
+{% extends 'body.html' %}
+{% import 'lib.html' as form_lib with context %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <p class="prompt-text">
+                {{ game_output}}
+            </p>
+        </section>
+        <section>
+            <form action="" method="post" name="prompt" class="form-inline" role="form">
+                {{form.hidden_tag()}}
+                <div class="form-group">
+                    {{ form.prompt(size=50, placeholder="Type command here") }}
+                </div>
+                <input type="submit" class="btn" value="Go!">
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}
