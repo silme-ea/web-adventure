@@ -30,3 +30,15 @@ def do_command(game, command):
     words = re.findall(r'\w+', command)
     if words:
         return game.do_command(words)
+
+
+class Score:
+    def __init__(self):
+        self.current_score = 0
+        self.max_score = 0
+
+
+def get_current_score(game):
+    score = Score()
+    score.current_score, score.max_score = game.compute_score()
+    return score

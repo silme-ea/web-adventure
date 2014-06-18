@@ -4,7 +4,7 @@ from jinja2 import Markup
 from flask import Blueprint, render_template, request, Response
 
 from .forms import PromptField
-from .api import start_new_game, get_last_output, do_command
+from .api import start_new_game, get_last_output, do_command, get_current_score
 
 bp = Blueprint('prompt', __name__, url_prefix='/adventure')
 
@@ -30,4 +30,5 @@ def prompt_view():
 
     return render_template('adventure/prompt.html',
                            form=form,
-                           game_output=output)
+                           game_output=output,
+                           score=get_current_score(game))
