@@ -4,20 +4,45 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12">
-        <section>
-            <p class="prompt-text">
+        <section id="prompt-text">
+            <p class="prompt-answer">
                 {{ game_output}}
             </p>
         </section>
         <section>
-            <form action="" method="post" name="prompt" class="form-inline" role="form">
+            <form action="" method="post" id="prompt-form" class="form-inline" role="form">
                 {{form.hidden_tag()}}
                 <div class="form-group">
                     {{ form.prompt(size=50, placeholder="Type command here") }}
                 </div>
-                <input type="submit" class="btn" value="Go!">
+                <input type="submit" id="submit-btn" class="btn" value="Go!">
             </form>
         </section>
     </div>
 </div>
+{% endblock %}
+
+{% block tail %}
+{{ super() }}
+<script type="text/javascript">
+    $(function() {
+        $('#prompt-form').submit(function(e){
+            var url = '/adventure/next/';
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $('#prompt-form').serialize(),
+                success: function(data) {
+                    var txt = $('#prompt-text')
+                    txt.append(data);
+                    txt.animate({ scrollTop: txt.height() }, 1000);
+                    $('#prompt').val('');
+                }
+            });
+
+            e.preventDefault(); 
+        });
+    });
+</script>
 {% endblock %}

@@ -5777,7 +5777,7 @@ button.close {
   background-color: green;
   color: yellow;
 }
-.prompt-text {
+#prompt-text {
   margin-top: 10px;
   padding: 10px;
   border-width: 2px;
@@ -5785,4 +5785,6 @@ button.close {
   border-style: solid;
   background-color: #EEEEEE;
   font-family: Monospace;
+  height: 500px;
+  overflow-y: scroll;
 }
