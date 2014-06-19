@@ -27,6 +27,7 @@ def api_next():
 def prompt_view():
     form = PromptField()
     output = get_last_output(game)
+    output = Markup('<p class="prompt-answer">%s</p>' % output)
 
     return render_template('adventure/prompt.html',
                            form=form,
