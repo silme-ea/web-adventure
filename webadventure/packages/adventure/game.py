@@ -64,7 +64,7 @@ class Game(Data):
         """Append the Unicode representation of `s` to our output."""
         if more:
             self.output += str(more).upper()
-            self.output += '\n'
+            self.output += '<br/>'
 
     def write_message(self, n):
         self.write(self.messages[n])
@@ -1328,10 +1328,8 @@ class Game(Data):
         for obj in objs:
             if first:
                 self.write_message(99)
-                self.write('<br>')
                 first = False
             self.write(obj.inventory_message)
-            self.write('<br>')  # TODO: maybe it's better to add to api function that returns list of items
         if self.bear.is_toting:
             self.write_message(141)
         if not objs:
