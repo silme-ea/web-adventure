@@ -42,3 +42,8 @@ def get_current_score(game):
     score = Score()
     score.current_score, score.max_score = game.compute_score()
     return score
+
+
+def load_last_game(savefile):
+    game = Game.resume(savefile)
+    return game

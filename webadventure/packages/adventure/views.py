@@ -4,14 +4,15 @@ from jinja2 import Markup
 from flask import Blueprint, render_template, request, Response
 
 from .forms import PromptField
-from .api import start_new_game, get_last_output, do_command, get_current_score
+from .api import start_new_game, get_last_output, do_command, get_current_score, load_last_game
 
 bp = Blueprint('prompt', __name__, url_prefix='/adventure')
 
 #temporary global init of the game for test purposes
 #TODO: should be removed and develop separate initialisations for each user
-game = start_new_game()
-
+#game = start_new_game()
+#test loading game from file; comment line above and uncomment line below to test this feature
+game = load_last_game('tests/testsave')
 
 @bp.route('/next/', methods=('POST', ))
 def api_next():
