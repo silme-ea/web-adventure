@@ -45,5 +45,7 @@ def get_current_score(game):
 
 
 def load_last_game(savefile):
+    from os import path
     game = Game.resume(savefile)
+    game.output = 'GAME ' + '\'' + path.basename(savefile) + '\'' + ' RESTORED'
     return game
